@@ -11,6 +11,4 @@ class PdSitmBySum(
 
     @Column(name = "vld_od_cnt")
     var buyCount: Long
-) {
-    constructor() : this(sitmNo = "", buyCount = 0)
-}
+)

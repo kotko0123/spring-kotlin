@@ -1,10 +1,12 @@
 package com.example.api
 
+import com.example.api.processor.MultiProcessorLoader
 import com.example.core.domain.PdSitmBySum
 import com.example.core.log.logger
 import com.example.core.domain.PdSitmBySumRepository
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.lang.StringBuilder
@@ -13,7 +15,8 @@ import java.lang.StringBuilder
 @RestController
 @RequestMapping("/")
 class Controller(
-    private val pdSitmBySumRepository: PdSitmBySumRepository
+    private val pdSitmBySumRepository: PdSitmBySumRepository,
+    private val processorLoader: MultiProcessorLoader
 ) {
 
     @GetMapping
@@ -34,5 +37,17 @@ class Controller(
             stringBuilder.append("${it.buyCount} - ${it.sitmNo}\n")
         }
         return stringBuilder.toString()
+    }
+
+    @GetMapping("/processor/{processorName}")
+    fun processor(@PathVariable processorName: String): String {
+        processorLoader.getProcessor(processorName).process(1, 2)
+        return "success - $processorName"
+    }
+
+    @GetMapping("/processor/all")
+    fun processor(): String {
+        processorLoader.loadAllProcessor( 1, 2)
+        return "success - all"
     }
 }

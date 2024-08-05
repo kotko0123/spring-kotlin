@@ -1,6 +1,7 @@
 package com.example.api
 
 import com.example.api.processor.MultiProcessorLoader
+import com.example.api.service.TestService
 import com.example.core.domain.PdSitmBySum
 import com.example.core.log.logger
 import com.example.core.domain.PdSitmBySumRepository
@@ -16,7 +17,8 @@ import java.lang.StringBuilder
 @RequestMapping("/")
 class Controller(
     private val pdSitmBySumRepository: PdSitmBySumRepository,
-    private val processorLoader: MultiProcessorLoader
+    private val processorLoader: MultiProcessorLoader,
+    private val testService: TestService
 ) {
 
     @GetMapping
@@ -37,6 +39,11 @@ class Controller(
             stringBuilder.append("${it.buyCount} - ${it.sitmNo}\n")
         }
         return stringBuilder.toString()
+    }
+
+    @GetMapping("/test")
+    fun test(): String {
+        return testService.test()
     }
 
     @GetMapping("/processor/{processorName}")

@@ -5,6 +5,7 @@ import com.example.api.service.TestService
 import com.example.core.domain.PdSitmBySum
 import com.example.core.log.logger
 import com.example.core.domain.PdSitmBySumRepository
+import com.example.core.domain.User
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -18,7 +19,8 @@ import java.lang.StringBuilder
 class Controller(
     private val pdSitmBySumRepository: PdSitmBySumRepository,
     private val processorLoader: MultiProcessorLoader,
-    private val testService: TestService
+    private val testService: TestService,
+    private val userService: UserService
 ) {
 
     @GetMapping
@@ -44,6 +46,11 @@ class Controller(
     @GetMapping("/test")
     fun test(): String {
         return testService.test()
+    }
+
+    @GetMapping("/users")
+    fun users(): List<User> {
+        return userService.getUsersByName("kim")
     }
 
     @GetMapping("/processor/{processorName}")

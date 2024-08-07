@@ -2,7 +2,7 @@ package com.example.core.domain
 
 import jakarta.persistence.*
 
-@Entity(name = "pd_sitm_by_sum")
+@Entity
 class PdSitmBySum(
 
     @Id

@@ -10,6 +10,7 @@ plugins {
     kotlin("plugin.jpa") version kotlinVersion
     kotlin("plugin.allopen") version kotlinVersion
     kotlin("kapt") version kotlinVersion
+    id("me.champeau.jmh") version "0.7.2"
 }
 
 // 모든 프로젝트에 공통으로 적용될 설정
@@ -44,6 +45,7 @@ subprojects {
     apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
     apply(plugin = "kotlin")
     apply(plugin = "kotlin-kapt")
+    apply(plugin = "me.champeau.jmh")
 
     dependencies {
         //공통사용
@@ -57,8 +59,11 @@ subprojects {
         implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
         kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
 
-        implementation("io.github.microutils:kotlin-logging:3.0.5")
-        implementation("io.github.microutils:kotlin-logging-jvm:2.1.21")
+        implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
+
+        implementation(kotlin("stdlib"))
+        jmh("org.openjdk.jmh:jmh-core:1.36")
+        jmh("org.openjdk.jmh:jmh-generator-annprocess:1.36")
     }
 
     allOpen {
@@ -66,4 +71,11 @@ subprojects {
         annotation("jakarta.persistence.Embeddable")
         annotation("jakarta.persistence.MappedSuperclass")
     }
+}
+
+jmh {
+    threads = 1  // 벤치마킹을 몇 개의 쓰레드에서 돌릴지
+    fork = 1  // 몇 회 실행시킬지
+//    warmupIterations = 1  // 메모리에 처음 탑재되는 시간이 걸릴 수 있으므로 미리 n번 돌려주는 것
+//    iterations = 1  // 이터레이션 횟수
 }

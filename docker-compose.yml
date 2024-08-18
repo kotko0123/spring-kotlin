@@ -15,7 +15,7 @@ services:
       - mysql57:/var/lib/mysql
   redis:
     image: redis:4.0
-    container_name: redis4_0-container
+    container_name: redis4_0-container1
     ports:
       - "6378:6379"
     mem_limit: 256m

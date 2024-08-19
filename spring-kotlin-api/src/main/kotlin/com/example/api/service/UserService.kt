@@ -1,4 +1,4 @@
-package com.example.api
+package com.example.api.service
 
 import com.example.core.domain.User
 import com.example.core.domain.UserQueryRepository

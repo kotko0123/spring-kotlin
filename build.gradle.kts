@@ -59,6 +59,9 @@ subprojects {
         implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
         kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
 
+        implementation("org.mapstruct:mapstruct:1.6.0")
+        implementation("org.mapstruct:mapstruct-processor:1.6.0")
+
         implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
 
         implementation(kotlin("stdlib"))
@@ -74,7 +77,7 @@ subprojects {
 }
 
 jmh {
-    threads = 1  // 벤치마킹을 몇 개의 쓰레드에서 돌릴지
+//    threads = 1  // 벤치마킹을 몇 개의 쓰레드에서 돌릴지
     fork = 1  // 몇 회 실행시킬지
 //    warmupIterations = 1  // 메모리에 처음 탑재되는 시간이 걸릴 수 있으므로 미리 n번 돌려주는 것
 //    iterations = 1  // 이터레이션 횟수

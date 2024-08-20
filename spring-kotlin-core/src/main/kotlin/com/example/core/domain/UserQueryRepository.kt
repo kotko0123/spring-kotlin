@@ -19,7 +19,7 @@ class UserQueryRepository(
 
   fun eqId(id: Long): BooleanExpression? {
     return when (id) {
-      null, 0L -> null
+      0L -> null
       else -> user.id.eq(id)
     }
   }

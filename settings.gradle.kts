@@ -12,3 +12,4 @@ plugins {
 rootProject.name = "spring-kotlin"
 include("spring-kotlin-core")
 include("spring-kotlin-api")
+include("spring-kotlin-ksp")

@@ -15,7 +15,7 @@ class SumProcessor : MultiProcessor {
     }
     override fun process(a: Int, b: Int) {
         val value = a + b
-        logger.info { "SumProcessor: $a + $b = $value" }
+//        logger.info { "SumProcessor: $a + $b = $value" }
 
         log.info("SumProcessor(log): $value")
 

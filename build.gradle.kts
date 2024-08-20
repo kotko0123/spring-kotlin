@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "2.0.0-RC1"
+    val kotlinVersion = "2.0.10"
 
-    id("org.springframework.boot") version "3.2.3"
+    id("org.springframework.boot") version "3.2.8"
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
@@ -74,8 +74,8 @@ subprojects {
 }
 
 jmh {
-    threads = 1  // 벤치마킹을 몇 개의 쓰레드에서 돌릴지
+    threads = 2  // 벤치마킹을 몇 개의 쓰레드에서 돌릴지
     fork = 1  // 몇 회 실행시킬지
-//    warmupIterations = 1  // 메모리에 처음 탑재되는 시간이 걸릴 수 있으므로 미리 n번 돌려주는 것
-//    iterations = 1  // 이터레이션 횟수
+    warmupIterations = 1  // 메모리에 처음 탑재되는 시간이 걸릴 수 있으므로 미리 n번 돌려주는 것
+    iterations = 1  // 이터레이션 횟수
 }

@@ -9,6 +9,7 @@ class MultiplyProcessor : MultiProcessor {
   companion object {
     private val log = LogManager.logger<MultiplyProcessor>()
     private val kLogger = LogManager.kLogger<SumProcessor>()
+    private val logger = logger()
   }
 
   override fun process(a: Int, b: Int) {

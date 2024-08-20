@@ -31,3 +31,8 @@ spring:
       jdbc-url: jdbc:mariadb://localhost:3306/kotlintest
       username: user
       password: password
+
+logging:
+    level:
+      org.hibernate.orm.jdbc.bind: trace
+      com.example: debug

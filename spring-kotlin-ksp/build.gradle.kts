@@ -20,5 +20,6 @@ plugins {
 dependencies {
   implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
   implementation("com.google.devtools.ksp:symbol-processing-api:2.0.10-1.0.24")
-//  ksp("com.google.devtools.ksp:symbol-processing-api:2.0.10-1.0.24")
+  // https://mvnrepository.com/artifact/com.squareup/kotlinpoet
+  implementation("com.squareup:kotlinpoet:1.18.1")
 }

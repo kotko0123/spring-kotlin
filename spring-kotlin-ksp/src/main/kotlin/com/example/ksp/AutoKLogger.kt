@@ -1,5 +1,5 @@
 package com.example.ksp
 
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.SOURCE)
+@Retention(AnnotationRetention.RUNTIME)
 annotation class AutoKLogger

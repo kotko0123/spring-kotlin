@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service
 class LoggerService {
 
   fun test() {
-    logger.info { "test" }
+//    logger.info { "test" }
   }
 }

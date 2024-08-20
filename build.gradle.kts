@@ -59,6 +59,9 @@ subprojects {
         implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
         kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
 
+        implementation("org.mapstruct:mapstruct:1.6.0")
+        implementation("org.mapstruct:mapstruct-processor:1.6.0")
+
         implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
 
         implementation(kotlin("stdlib"))

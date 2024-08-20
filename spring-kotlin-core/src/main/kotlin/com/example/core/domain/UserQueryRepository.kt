@@ -17,10 +17,13 @@ class UserQueryRepository(
       .fetch()
   }
 
-  fun eqName(name: String?): BooleanExpression? {
-    if (name.isNullOrEmpty()) {
-      return null
+  fun eqId(id: Long): BooleanExpression? {
+    return when (id) {
+      null, 0L -> null
+      else -> user.id.eq(id)
     }
-    return user.name.eq(name)
   }
+
+  fun eqName(name: String?): BooleanExpression? = name?.let { user.name.eq(name) }
+  /*if (name == null) null else user.name.eq(name)*/
 }
